@@ -1,8 +1,9 @@
 @model IEnumerable<Product>
 <h1>Alla produkter:</h1>
+<div class="cardHolder">
 @foreach (var product in Model)
 {
-    <div>
+    <div class="card">
         <a href="product/info/@product.ProductId">
             <h2> @product.Name</h2>
             <img src=@product.ImageUrl width="150px" height="150px">
@@ -10,3 +11,4 @@
         </a>
     </div>
 }
+</div>

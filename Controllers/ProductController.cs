@@ -12,14 +12,20 @@ public class ProductController : Controller
         _productRepository = productRepository;
     }
     public IActionResult Index()
-    {   
-        ViewBag.title="Produkter";
+    {
+        ViewBag.title = "Produkter";
         return View(_productRepository.AllProducts);
     }
     public IActionResult Info(int id)
-    {   
+    {
         var product = _productRepository.GetProductById(id);
-        ViewBag.title="Produktdetaljer -"+ product?.Name;
+        ViewBag.title = "Produktdetaljer -" + product?.Name;
         return View(product);
+    }
+    public IActionResult ByCategory(string category)
+    {
+        var products = _productRepository.GetProductByCategory(category);
+        ViewBag.title = "Kategori";
+        return View(products);
     }
 }

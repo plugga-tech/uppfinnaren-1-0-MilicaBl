@@ -12,8 +12,8 @@ public class ContactController : Controller
         ViewBag.title = "Kontakt";
         var contactInfo = new ContactInfo
         {
-            Email="thewoodatalier@info.com",
-            Address="Uppfinnarvägen 1, 12345 Göteborg"
+            Email = "thewoodatalier@info.com",
+            Address = "Uppfinnarvägen 1, 12345 Göteborg"
         };
         return View(contactInfo);
     }

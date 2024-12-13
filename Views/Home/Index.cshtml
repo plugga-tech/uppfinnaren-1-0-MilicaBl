@@ -1,14 +1,43 @@
-﻿<div class="mainCard">
+﻿@model IEnumerable<Category>
+
+<div class="mainCard">
     <div class="borderBox">
-        <h1>The <br/> Wood <br/> Atelier</h1>
+        <h1>The
+            <br/>
+            Wood
+            <br/>
+            Atelier</h1>
         <div class="imgHolder">
-        <img src="/img/mirror3.png">
-        <img src="/img/table1.png">
-        <img src="/img/chair3.png">
+            <img src="/img/mirror3.png">
+            <img src="/img/table1.png">
+            <img src="/img/chair3.png">
         </div>
     </div>
     <div>
         <p>The Element Atelier erbjuder extraordinära, distinkta möbler och unika trädetaljer. Vi erbjuder träprodukter och handgjorda heminredningsartiklar samt gåvor. Varje träbit har sin egen historia som började långt innan den kom till oss.</p>
         <partial name="_ContactButton"/>
     </div>
+</div>
+<div class="categoriesHolder">
+    <h2>Our Products</h2>
+    @foreach (var category in Model)
+    {
+        <section class="@(category.IsRowReversed ? "rowReverse" : "")">
+            <img src="/@category.ImageUrl">
+            <div>
+                <h3>@category.Name</h3>
+                <p>@category.Description</p>
+                @if (!string.IsNullOrEmpty(category.AdditionalDescription))
+                {
+                    <p>@category.AdditionalDescription</p>
+                }
+                <a href="@category.Link">
+                    Visa alla våra @category.Name.ToLower()
+                    <span class="material-symbols-outlined">
+                        arrow_right_alt
+                    </span>
+                </a>
+            </div>
+        </section>
+    }
 </div>

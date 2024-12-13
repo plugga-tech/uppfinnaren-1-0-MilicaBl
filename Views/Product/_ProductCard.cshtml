@@ -3,7 +3,7 @@
     @foreach (var product in Model)
     {
         <div class="card">
-            <a href="product/info/@product.ProductId">
+            <a href="@Url.Action("Info", "Product", new { id = product.ProductId })">
                 <h2>
                     @product.Name</h2>
                 <img src=/@product.ImageUrl width="150px" height="150px">

@@ -19,6 +19,7 @@ public class HomeController : Controller
     public IActionResult Index()
     {
         ViewBag.title = "The Wood Atelier";
+        
         var categories = _categoryRepository.GetAllCategories();
         return View(categories);
     }

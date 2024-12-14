@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<Category>
-
+ <div class="background-image-top-left" ></div>
+        <div class="background-image-bottom-right"></div>
 <div class="mainCard">
     <div class="borderBox">
         <h1>The
@@ -22,6 +23,7 @@
     <h2>Our Products</h2>
     @foreach (var category in Model)
     {
+    @* If bool IsRowReversed is true use class rowReverse else "" *@
         <section class="@(category.IsRowReversed ? "rowReverse" : "")">
             <img src="/@category.ImageUrl">
             <div>

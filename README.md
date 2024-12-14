@@ -29,4 +29,5 @@ Förkrav
 ## Teknologi  
 - **Backend:** ASP.NET Core MVC  
 - **Frontend:** HTML, CSS, Razor Views  
-- **Mock-data:** Användning av mock-repositories för att simulera data. 
+- **Mock-data:** Användning av mock-repositories för att simulera data.
+- Bilder är AI genererade

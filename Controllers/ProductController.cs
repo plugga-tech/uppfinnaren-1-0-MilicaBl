@@ -5,7 +5,7 @@ using uppfinnaren_1_0_MilicaBl.Models;
 namespace uppfinnaren_1_0_MilicaBl.Controllers;
 
 public class ProductController : Controller
-{
+{   
     private readonly IProductRepository _productRepository;
     public ProductController(IProductRepository productRepository)
     {

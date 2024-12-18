@@ -1,11 +1,18 @@
 using uppfinnaren_1_0_MilicaBl.Models;
+using Microsoft.EntityFrameworkCore;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddScoped<IProductRepository, MockProductRepository>();
 builder.Services.AddScoped<ICategoryRepository, MockCategoryRepository>();
+builder.Services.AddScoped<IProductRepository, DatabaseProductRepository>();
+builder.Services.AddScoped<ICategoryRepository, DatabaseCategoryRepository>();
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<AppDbContext>(options=>
+    options.UseInMemoryDatabase("uppfinnaren")
+);
 
 var app = builder.Build();
 

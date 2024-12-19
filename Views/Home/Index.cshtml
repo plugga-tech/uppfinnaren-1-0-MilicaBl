@@ -33,7 +33,7 @@
                 {
                     <p>@category.AdditionalDescription</p>
                 }
-                <a href="@category.Link">
+                <a href="@Url.Action("ByCategory", "Product", new { id = category.CategoryId })">
                     Visa alla våra @category.Name.ToLower()
                     <span class="material-symbols-outlined">
                         arrow_right_alt

@@ -232,7 +232,11 @@ section:not(:first-of-type) div {
 .card h2 {
   height: 70px;
 }
-
+/* category page */
+.categoryDescription{
+  padding: 0 50px 50px;
+  text-align: center;
+}
 /* productInfo */
 .description {
   max-width: 100%;

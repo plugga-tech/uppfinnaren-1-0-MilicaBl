@@ -1,11 +1,12 @@
 using System;
+using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using uppfinnaren_1_0_MilicaBl.Models;
 
 namespace uppfinnaren_1_0_MilicaBl.Controllers;
 
 public class ProductController : Controller
-{   
+{
     private readonly IProductRepository _productRepository;
     public ProductController(IProductRepository productRepository)
     {
@@ -22,10 +23,13 @@ public class ProductController : Controller
         ViewBag.title = "Produktdetaljer -" + product?.Name;
         return View(product);
     }
-    public IActionResult ByCategory(string category)
+    public IActionResult ByCategory(int id)
     {
-        var products = _productRepository.GetProductByCategory(category);
-        ViewBag.title = "Kategori";
+        var products = _productRepository.GetProductsByCategoryId(id);
+        var category = products.First().Category;
+        ViewBag.title = category.Name;
+        ViewBag.Category = category;
+
         return View(products);
     }
 }

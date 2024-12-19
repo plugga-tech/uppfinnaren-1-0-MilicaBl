@@ -1,4 +1,5 @@
 using System;
+using Microsoft.EntityFrameworkCore;
 
 namespace uppfinnaren_1_0_MilicaBl.Models;
 
@@ -17,9 +18,9 @@ public class DatabaseProductRepository : IProductRepository
         }
     }
 
-    public IEnumerable<Product> GetProductByCategory(string productCategory)
+    public IEnumerable<Product> GetProductsByCategoryId(int categoryId)
     {
-        return _context.Products.Where(p => p.Category.Equals(productCategory, StringComparison.OrdinalIgnoreCase));
+        return _context.Products.Where(p => p.CategoryId == categoryId).Include(p => p.Category).ToList();
     }
 
     public Product? GetProductById(int productId)

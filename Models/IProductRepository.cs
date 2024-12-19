@@ -6,5 +6,5 @@ public interface IProductRepository
 {
     IEnumerable<Product> AllProducts { get; }
     Product? GetProductById(int productId);
-    IEnumerable<Product> GetProductByCategory(string productCategory);
+    IEnumerable<Product> GetProductsByCategoryId(int categoryId);
 }

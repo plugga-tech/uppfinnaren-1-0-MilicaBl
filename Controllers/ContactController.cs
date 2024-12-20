@@ -8,10 +8,10 @@ namespace uppfinnaren_1_0_MilicaBl.Controllers;
 public class ContactController : Controller
 {
     public IActionResult Index()
-    {   
+    {
         // Page title
         ViewBag.title = "Kontakt";
-        
+
         var contactInfo = new ContactInfo
         {
             Email = "thewoodatalier@info.com",

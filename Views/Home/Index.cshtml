@@ -1,7 +1,7 @@
-﻿@model IEnumerable<Category>
- <div class="background-image-top-left" ></div>
-        <div class="background-image-bottom-right"></div>
-<div class="mainCard">
+﻿@model HomeViewModel
+<div class="background-image-top-left"></div>
+<div class="background-image-bottom-right"></div>
+<section class="mainCard">
     <div class="borderBox">
         <h1>The
             <br/>
@@ -9,22 +9,22 @@
             <br/>
             Atelier</h1>
         <div class="imgHolder">
-            <img src="/img/mirror3.png">
-            <img src="/img/table1.png">
-            <img src="/img/chair3.png">
+            <img src="/img/mirror/mirror3.png" alt="Handgjord spegel i trä">
+            <img src="/img/table/table1.png" alt="Skräddarsytt träbord">
+            <img src="/img/chair/chair3.png" alt="Unik trästol">
         </div>
     </div>
     <div>
         <p>The Element Atelier erbjuder extraordinära, distinkta möbler och unika trädetaljer. Vi erbjuder träprodukter och handgjorda heminredningsartiklar samt gåvor. Varje träbit har sin egen historia som började långt innan den kom till oss.</p>
         <partial name="_ContactButton"/>
     </div>
-</div>
+</section>
 <div class="categoriesHolder">
     <h2>Our Products</h2>
-    @foreach (var category in Model)
+    @foreach (var category in Model.Categories)
     {
-    @* If bool IsRowReversed is true use class rowReverse else "" *@
-        <section class="@(category.IsRowReversed ? "rowReverse" : "")">
+        @* If bool IsRowReversed is true use class rowReverse else "" *@
+        <section class="@(category.IsRowReversed ? "rowReverse" : "simpleRow")">
             <img src="/@category.ImageUrl">
             <div>
                 <h3>@category.Name</h3>
@@ -43,3 +43,15 @@
         </section>
     }
 </div>
+<div class="materialsHolder">
+    <h2>Material</h2>
+    @foreach (var material in Model.Materials)
+    {
+        <a href="@Url.Action("ByMaterial", "Product", new { id = material.MaterialId })">
+            <div style="background-image: url('@material.ImageUrl');">
+                <h3>@material.Name</h3>
+            </div>
+        </a>
+    }
+</div>
+

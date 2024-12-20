@@ -7,21 +7,28 @@ namespace uppfinnaren_1_0_MilicaBl.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
     private readonly ICategoryRepository _categoryRepository;
+    private readonly IMaterialRepository _materialRepository;
 
-    public HomeController(ILogger<HomeController> logger, ICategoryRepository categoryRepository)
+    public HomeController(ICategoryRepository categoryRepository, IMaterialRepository materialRepository)
     {
-        _logger = logger;
         _categoryRepository = categoryRepository;
+        _materialRepository = materialRepository;
     }
 
     public IActionResult Index()
     {
         ViewBag.title = "The Wood Atelier";
-        
+
         var categories = _categoryRepository.GetAllCategories();
-        return View(categories);
+        var materials = _materialRepository.GetAllMaterials();
+
+        var viewModel = new HomeViewModel
+        {
+            Categories = categories,
+            Materials = materials
+        };
+        return View(viewModel);
     }
 
     public IActionResult Privacy()

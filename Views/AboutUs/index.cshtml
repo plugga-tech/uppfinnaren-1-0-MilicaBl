@@ -1,0 +1,8 @@
+@model AboutUs
+
+<h1>@Model.CompanyName</h1>
+<img class="fingerPrintImg" src="/img/decoration/wood1.png" alt="Dekorationsbild som representerar företaget">
+<p class="aboutDescription">@Model.AboutCompanyContent</p>
+<h2 >Om uppfinnaren-@Model.ArtistName</h2>
+<img class="fingerPrintImg" src="@Model.ArtistImageUrl" alt="Bild på @Model.ArtistName"/>
+<p class="aboutDescription">@Model.AboutArtistContent</p>

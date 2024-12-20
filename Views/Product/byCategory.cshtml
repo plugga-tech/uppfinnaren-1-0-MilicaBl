@@ -1,5 +1,5 @@
-@{var category = ViewBag.Category as Category;}
+@model CategoryViewModel
 
-<h1>@category.Name</h1>
-<p class="categoryDescription">@category.Description</p>
-<partial name="_ProductCard" />
+<h1>@Model.Category.Name</h1>
+<p class="categoryDescription">@Model.Category.Description</p>
+<partial name="_ProductCard"model="@Model.Products" />

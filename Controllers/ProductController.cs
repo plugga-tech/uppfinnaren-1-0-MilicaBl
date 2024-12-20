@@ -26,10 +26,27 @@ public class ProductController : Controller
     public IActionResult ByCategory(int id)
     {
         var products = _productRepository.GetProductsByCategoryId(id);
-        var category = products.First().Category;
+        var category = products.First().Category;//Get category of first product
         ViewBag.title = category.Name;
-        ViewBag.Category = category;
+        var viewModel = new CategoryViewModel
+        {
+            Category = category,
+            Products = products
+        };
 
-        return View(products);
+        return View(viewModel);
+    }
+    public IActionResult ByMaterial(int id)
+    {
+        var products = _productRepository.GetProductsByMaterial(id);
+        var material = products.First().Material;//Get material of first product
+        ViewBag.title = material.Name + " material produkter";
+        var viewModel = new MaterialViewModel
+        {
+            Material = material,
+            Products = products
+        };
+
+        return View(viewModel);
     }
 }

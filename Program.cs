@@ -1,5 +1,6 @@
 using uppfinnaren_1_0_MilicaBl.Models;
 using Microsoft.EntityFrameworkCore;
+using uppfinnaren_1_0_MilicaBl.Models.About;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 // builder.Services.AddScoped<ICategoryRepository, MockCategoryRepository>();
 builder.Services.AddScoped<IProductRepository, DatabaseProductRepository>();
 builder.Services.AddScoped<ICategoryRepository, DatabaseCategoryRepository>();
+builder.Services.AddScoped<IMaterialRepository, DatabaseMaterialRepository>();
+builder.Services.AddScoped<IAboutUsRepository, AboutUsRepository>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AppDbContext>(options=>
     options.UseInMemoryDatabase("uppfinnaren")

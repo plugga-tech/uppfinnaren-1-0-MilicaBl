@@ -1,0 +1,5 @@
+@model MaterialViewModel
+
+<h2>Våra produkter i @Model.Material.Name</h2>
+<p class="categoryDescription">@Model.Material.Description</p>
+<partial name="_ProductCard" model="@Model.Products"/>

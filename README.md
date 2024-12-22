@@ -31,3 +31,16 @@ Förkrav
 - **Frontend:** HTML, CSS, Razor Views  
 - **Mock-data:** Användning av mock-repositories för att simulera data.
 - Bilder är AI genererade
+
+## Branch Uppfinnaren-2
+Denna branch innehåller förbättringar och nya funktioner som inte finns i main:
+- **Databasanslutning:** Mockrepositories har ersatts med en EF InMemory databas. 
+- **Relationshantering:** Produkter är nu kopplade till kategorier med en foreignkey CategoryId.
+- **Material:** Produkter är nu kopplade till Material och det finns en materialsektion på startsidan för att filtrera produkter på material.
+- **Om oss sida**
+
+##För att testa Uppfinnaren-2 
+**Byt till branchen med :**
+ ```bash
+   git checkout uppfinnaren-2
+ ````

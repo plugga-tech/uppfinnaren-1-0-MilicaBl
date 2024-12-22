@@ -37,7 +37,7 @@ Denna branch innehåller förbättringar och nya funktioner som inte finns i mai
 - **Databasanslutning:** Mockrepositories har ersatts med en EF InMemory databas. 
 - **Relationshantering:** Produkter är nu kopplade till kategorier med en foreignkey CategoryId.
 - **Material:** Produkter är nu kopplade till Material och det finns en materialsektion på startsidan för att filtrera produkter på material.
-- **Om oss sida**
+- **"Om oss" sida**
 
 ##För att testa Uppfinnaren-2 
 **Byt till branchen med :**
